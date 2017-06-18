@@ -1,0 +1,31 @@
+{
+	"name": "Assignment1",
+	"version": "0.0.1",
+	"private": true,
+	"scripts": {
+		"start": "node node_modules/react-native/local-cli/cli.js start",
+		"test": "jest"
+	},
+	"dependencies": {
+		"moment": "^2.18.1",
+		"react": "15.4.2",
+		"react-native": "0.42.0",
+		"react-native-deprecated-custom-components": "^0.1.0",
+		"react-native-grid-view": "^0.4.1",
+		"react-native-image-progress": "^0.6.0",
+		"react-native-progress": "^3.2.1",
+		"react-native-search-bar": "^3.0.0",
+		"react-native-search-box": "0.0.9",
+		"react-native-tab-view": "0.0.66",
+		"react-native-vector-icons": "^4.2.0"
+	},
+	"devDependencies": {
+		"babel-jest": "20.0.3",
+		"babel-preset-react-native": "2.0.0",
+		"jest": "20.0.4",
+		"react-test-renderer": "15.4.2"
+	},
+	"jest": {
+		"preset": "react-native"
+	}
+}
