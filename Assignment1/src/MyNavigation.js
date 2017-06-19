@@ -4,9 +4,9 @@ import { StyleSheet, Text, View, TouchableHighlight } from "react-native";
 import { Navigator } from "react-native-deprecated-custom-components";
 import { TabViewAnimated, TabBar, SceneMap } from "react-native-tab-view";
 
-// import MyListView from "./MyListView";
 import MovieDetail from "./MovieDetail";
 import MyListGridView from "./MyListGridView";
+import MyGridView from "./MyGridView";
 
 export default class MyNavigation extends Component {
     
@@ -57,6 +57,15 @@ export default class MyNavigation extends Component {
             case "MovieDetail":
               return (
                 <MovieDetail
+                  url={this.props.url}
+                  navigator={navigator}
+                  {...route.passProps}
+                />
+              );
+
+            case "MovieGrid":
+              return (
+                <MyGridView
                   url={this.props.url}
                   navigator={navigator}
                   {...route.passProps}

@@ -19,14 +19,13 @@ import MovieDetail from "./MovieDetail";
 const { height, width } = Dimensions.get("window");
 
 export default class GridViewItem extends Component {
-    
   constructor(props) {
     super(props);
 
-    console.log("GridViewItem = " + this.props.rowData);
+    console.log("GridViewItem = " + this.props.movie);
 
     this.state = {
-      rowData: this.props.rowData,
+      movie: this.props.movie,
       modalVisible: false
     };
   }
@@ -43,9 +42,43 @@ export default class GridViewItem extends Component {
   };
 
   render() {
+    var size = ((width)/2 - 10) * 900 / 600;
     return (
-      <View>
-       
+      <View style={{flex:1}} key={this.state.movie.id}>
+        <TouchableHighlight
+          onPress={() => this._onSelectMovie(this.state.movie)}
+        >
+          <View style={{flex:0.5, flexDirection: 'column'}}>
+            <Image
+              indicator={Progress.Pie}
+              style={{ marginTop: 5, width: (width)/2 - 10, height: size }}
+              source={{
+                uri:
+                  "https://image.tmdb.org/t/p/w342" +
+                    this.state.movie.poster_path
+              }}
+            />
+            <View>
+              <Text style={{paddingLeft: 10, paddingRight: 10, paddingTop: 10, fontSize: 15, fontWeight: 'bold'}} numberOfLines={1}>
+                {this.state.movie.title}
+              </Text>
+              <Text style={{padding: 10}} numberOfLines={3}>
+                {this.state.movie.overview}
+              </Text>
+            </View>
+          </View>
+        </TouchableHighlight>
+
+        <Modal
+          animationType={"slide"}
+          transparent={false}
+          visible={this.state.modalVisible}
+          onRequestClose={() => {
+            alert("Modal has been closed.");
+          }}
+        >
+          <MovieDetail movie={this.state.movie} onTouchBackAction={this.closeModal} />
+        </Modal>
       </View>
     );
   }

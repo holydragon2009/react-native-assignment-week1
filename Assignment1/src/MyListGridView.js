@@ -25,6 +25,7 @@ const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 const { screenWidth, screenHeight } = Dimensions.get('window');
 
 export default class MyListGridView extends Component {
+  
     constructor(props) {
       super(props);
       this.state = {
@@ -34,7 +35,6 @@ export default class MyListGridView extends Component {
         page: 0,
         totalData: null,
         text: '',
-        isListView: true,
       };
     }
 
@@ -107,39 +107,13 @@ export default class MyListGridView extends Component {
     }
 
     onButtonPress = () => {
-      this.setState({
-        isListView: !this.state.isListView 
-      });
+      this.props.navigator && this.props.navigator.push({id:'MovieGrid', passProps: {
+        // movie: movie
+      }})
     }
 
     render() {
       var screenWidth = this.state.screenWidth;
-      if(!this.state.isListView){
-        return (
-          <View style={{flex:1, flexDirection: 'column', marginTop:20, backgroundColor: '#009588', justifyContent:'space-around'}}>
-            <Search
-              ref="search_box"
-              onChangeText={this.onChangeText}
-            />
-            <Button
-              onPress={this.onButtonPress}
-              title="Change to ListView" 
-            />
-            <GridView
-              items={this.state.dataSource}
-              itemsPerRow={MOVIES_PER_ROW}
-              renderItem={this.renderGridItem}
-              style={{backgroundColor: "#459288"}}
-              refreshControl={
-                <RefreshControl
-                  refreshing={this.state.refreshing}
-                  onRefresh={this.onRefresh.bind(this)}
-                />
-              }
-              />
-          </View>
-        );
-      }
       return (
         <View style={{flex:1, flexDirection: 'column', marginTop:20, backgroundColor: '#009588', justifyContent:'space-around'}}>
           <Search
