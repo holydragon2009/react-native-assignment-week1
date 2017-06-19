@@ -12,6 +12,7 @@ import {
   Button
 } from "react-native";
 
+import Icon from 'react-native-vector-icons/FontAwesome';
 import GridView from "react-native-grid-view";
 import Search from 'react-native-search-box';
 import GridViewItem from "./GridViewItem";
@@ -80,8 +81,40 @@ export default class MyGridView extends Component {
       });
   }
 
+  onChangeText = (text) => {
+      return new Promise((resolve, reject) => {
+          console.log('onChangeText text = ' + text);
+          this.onFilter(text);
+          resolve();
+      });
+    }
+
+  onFilter(text){
+    let filteredData = []
+    for (var i = 0; i < this.state.totalData.length; i++) {
+      if(this.isMatching(this.state.totalData[i], text)){
+        filteredData.push(this.state.totalData[i]);
+      }
+    }
+    // console.log('filter data = ' + JSON.stringify(filteredData))
+    this.setState({
+      dataSource: filteredData,
+    });
+  }
+
+  isMatching(item, text){
+    var searchText = text.toLowerCase();
+    var title = item.title.toLowerCase();
+    var desc = item.overview.toLowerCase();
+    // console.log('title.match(searchText) = ' + JSON.stringify(title.match(searchText)))
+    if(title.match(searchText) || desc.match(searchText)){
+      return true
+    }
+    return false
+  }
+
   onEndReached = () => {
-      alert("onEndReached !!!");
+      // alert("onEndReached !!!");
       this.loadMore();
   }
 
@@ -146,6 +179,7 @@ export default class MyGridView extends Component {
             </Text>
           </View>
         </TouchableHighlight>
+        <Icon name="bars" size={30} color="black" onPress={this.onButtonPress} style={{margin:5}} />
         <Search ref="search_box" onChangeText={this.onChangeText} />
         <GridView
 					style={{backgroundColor: '#009588'}}

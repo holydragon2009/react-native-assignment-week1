@@ -5,7 +5,7 @@ import { Navigator } from "react-native-deprecated-custom-components";
 import { TabViewAnimated, TabBar, SceneMap } from "react-native-tab-view";
 
 import MovieDetail from "./MovieDetail";
-import MyListGridView from "./MyListGridView";
+import MyListView from "./MyListView";
 import MyGridView from "./MyGridView";
 
 export default class MyNavigation extends Component {
@@ -47,7 +47,7 @@ export default class MyNavigation extends Component {
           switch (route.id) {
             case "MovieList":
               return (
-                <MyListGridView
+                <MyListView
                   url={this.props.url}
                   navigator={navigator}
                   {...route.passProps}
