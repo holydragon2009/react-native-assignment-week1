@@ -1,22 +1,55 @@
-Project 1 - Assignment Week 1 - Flicks
+# Project 1 - Assignment Week 1 - Flicks
 
-Time spent: X hours spent in total
+Flicks is a movies app using the [The Movie Database API](http://docs.themoviedb.apiary.io/#).
 
-User Stories
+Time spent: **12** hours spent in total
 
-The following required functionality is completed:
+## User Stories
 
-x User can view a list of movies currently playing in theaters from The Movie Database. Poster images must be loaded asynchronously. Use the latest movies data from the Movie Database API. Ensure you can hit the "Now Playing" endpoint in a browser. This shows the data we will be using from The Movies Database. Note: It's helpful to install the JSON Formatter Chrome Extension to browse the returned JSON easily. Sample Request: https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed
-x User can view movie details by tapping on a cell.
-x User can pull to refresh the movie list or you can reference Week 1 Lab [Bonus 2: Infinite Scrolling]
-A few key pointers:
+The following **required** functionality is completed:
 
-ListView
-Hint: ListView
-x Add a tab bar for Now Playing or Top Rated movies. Hint: React Native does not design Tabbar for android, you we have to use an external component tab bar component.
-x Implement a Nagivator to switch between a list view and a grid view. (high). Hint: Follow the Prework instruction Navigator. Feel free to use React Navigation if you like.
+- [x] User can view a list of movies currently playing in theaters. Poster images load asynchronously.
+- [x] User can view movie details by tapping on a cell.
+- [x] User sees loading state while waiting for the API.
+- [ ] User sees an error message when there is a network error.
+- [x] User can pull to refresh the movie list & infinite Scrolling.
 
-Extra:
-x Add a search bar (see below)
-x All images fade in as they are loading. (see below). Hint: The image should only fade in if it's coming from network, not cache, we use external component react-native-image-progress
-x For the large poster, load the low-res image first and switch to high-res when complete. (low)
+The following **optional** features are implemented:
+
+- [x] Add a tab bar for **Now Playing** and **Top Rated** movies.
+- [x] Implement a Nagivator to switch between a list view and a grid view.
+- [x] Add a search bar.
+- [x] All images loading progress and fade in as they are loading.
+- [x] For the large poster, load the low-res image first, switch to high-res when complete.
+
+The following **additional** features are implemented:
+
+- [ ] List anything else that you can get done to improve the app functionality!
+
+## Video Walkthrough
+
+Here's a walkthrough of implemented user stories:
+
+<img src='demo.gif' title='Video Walkthrough' width='350px' height='600px' alt='Video Walkthrough' />
+
+GIF created with [LiceCap](http://www.cockos.com/licecap/).
+
+## Notes
+
+Describe any challenges encountered while building the app.
+
+## License
+
+    Copyright [yyyy] [name of copyright owner]
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
