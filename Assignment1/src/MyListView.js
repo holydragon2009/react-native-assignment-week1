@@ -4,7 +4,7 @@ import {
   Text,
   View,
   ListView,
-  Image,
+  // Image,
   Dimensions,
   Alert,
   RefreshControl,
@@ -12,8 +12,10 @@ import {
   Button
 } from 'react-native';
 
-import Icon from 'react-native-vector-icons/FontAwesome';
+import Image from 'react-native-image-progress';
+import ProgressBar from 'react-native-progress/Bar';
 
+import Icon from 'react-native-vector-icons/FontAwesome';
 // import SearchBar from 'react-native-search-bar'
 import Search from 'react-native-search-box';
 
@@ -196,7 +198,7 @@ export default class MyListView extends Component {
           onPress={()=>this._onSelectMovie(this.props.movie)}>
           <View style={{flex:1, flexDirection:'row', borderBottomColor: 'black',
                         borderBottomWidth: 1, padding: 10, backgroundColor: '#009588'}}>
-            <Image source={{uri: imageUrl}} 
+            <Image source={{uri: imageUrl}} indicator={ProgressBar} 
                 style={{width: (this.state.dimen.width/3), height: size, flex: 3}} />
             <View style={{flex: 7}}>
               <Text style={{padding: 10, fontSize: 15, fontWeight: 'bold'}}>{this.props.movie.title}</Text>     
